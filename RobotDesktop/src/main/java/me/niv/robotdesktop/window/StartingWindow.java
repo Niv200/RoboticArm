@@ -1,9 +1,14 @@
 package me.niv.robotdesktop.window;
 
-import java.awt.Dimension;
+import static java.util.Objects.isNull;
+
+import com.fazecast.jSerialComm.SerialPort;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.PrintWriter;
+import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -11,9 +16,13 @@ import javax.swing.JTextField;
 import me.niv.robotdesktop.data.GCodeCharacter;
 import me.niv.robotdesktop.data.GCodeCommand;
 import me.niv.robotdesktop.data.SerialCommand;
-import me.niv.robotdesktop.panels.DrawingPanel;
+import me.niv.robotdesktop.serial.SerialHandler;
+import me.niv.robotdesktop.service.ActionService;
 
 public class StartingWindow {
+
+    private SerialHandler serialHandler = new SerialHandler();
+    private ActionService actionService = new ActionService();
 
     private JPanel mainPanel;
     private JTabbedPane tabbedPane1;
@@ -32,9 +41,7 @@ public class StartingWindow {
     private JPanel axisTwoPanel;
     private JPanel axisOnePanel;
     private JPanel axisPanel;
-    private JPanel dwellPanel;
     private JButton dwellExecuteButton;
-    private JPanel calibrationInnerPanel;
     private JLabel zPositionField;
     private JLabel yPositionField;
     private JLabel xPositionField;
@@ -54,23 +61,37 @@ public class StartingWindow {
     private JButton yMinusTenButton;
     private JPanel innerPanelRelativeY;
     private JPanel innerPanelRelativeX;
+    private JPanel calibrationInnerPanel;
+    private JPanel dwellPanel;
+    private JComboBox comPortsComboBox;
+    private JButton connectPortButton;
+    private JLabel comStatusText;
+
+    private WindowData data = new WindowData();
 
     public StartingWindow() {
+        List<String> serialPorts = serialHandler.getPortsNames();
+
+        serialPorts.forEach(portName -> comPortsComboBox.addItem(portName));
+
         homingExecuteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO Home serial output
                 String command = new SerialCommand().gCode(GCodeCommand.HOME).build();
-                System.out.println(command);
+                SerialPort port = serialHandler.getConnectedPort();
+                if(!isNull(port)){
+                    port.setComPortParameters(115200, 8, 1, 0); // default connection settings for Arduino
+                    port.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 0);
 
-                axisOnePanel.setSize(new Dimension(200, 200));
-                axisOnePanel.setVisible(true);
-                JPanel jPanel = new DrawingPanel();
-//                axisOnePanel.add(jPanel);
-                jPanel.repaint();
-                axisOnePanel.repaint();
+                    PrintWriter out = new PrintWriter(port.getOutputStream(),true);
+                    out.println(command);
+                    out.flush();
 
-                mainPanel.add(axisOnePanel);
+                }
+
+                //TODO DRAWING PANEL TESTING
+                data.updateFirstAxisPanel(axisOnePanel);
             }
         });
 
@@ -92,6 +113,8 @@ public class StartingWindow {
             }
         });
 
+        //Serial
+        connectPortButton.addActionListener(actionService.serialConnectActionListener(serialHandler, comPortsComboBox, comStatusText));
     }
 
     public static StartingWindow getStartingWindow(){

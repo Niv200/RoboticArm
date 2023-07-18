@@ -34,7 +34,7 @@
               <text value="Controls"/>
             </properties>
           </component>
-          <grid id="b7b71" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="b7b71" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -42,17 +42,9 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="b9344" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Callibration"/>
-                </properties>
-              </component>
               <component id="8ca7f" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Movement"/>
@@ -60,7 +52,7 @@
               </component>
               <tabbedpane id="5f052" binding="tabbedPane1" default-binding="true">
                 <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="200" height="200"/>
                   </grid>
                 </constraints>
@@ -531,7 +523,7 @@
               <grid id="c2ca9" binding="innerPositionPanel" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="1" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
@@ -594,74 +586,158 @@
                   </component>
                 </children>
               </grid>
-              <grid id="88916" binding="calibrationInnerPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="d723e" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="4002e" class="javax.swing.JLabel">
+                  <component id="23a56" class="javax.swing.JComboBox" binding="comPortsComboBox">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="5e90c" class="javax.swing.JButton" binding="connectPortButton">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="connect"/>
+                    </properties>
+                  </component>
+                  <component id="79e56" class="javax.swing.JLabel">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="Home"/>
+                      <text value="PORTS:"/>
                     </properties>
                   </component>
-                  <component id="5e307" class="javax.swing.JButton" binding="homingExecuteButton">
-                    <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value="Execute"/>
-                    </properties>
-                  </component>
-                  <component id="8dcc4" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value="Dwell"/>
-                    </properties>
-                  </component>
-                  <grid id="14fce" binding="dwellPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="a857" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="ffe78" class="javax.swing.JLabel">
+                      <component id="64bf8" class="javax.swing.JLabel">
                         <constraints>
-                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <text value="(seconds)"/>
+                          <text value="Status"/>
                         </properties>
                       </component>
-                      <component id="2699d" class="javax.swing.JTextField" binding="dwellSecondsInput">
+                      <component id="d9cf6" class="javax.swing.JLabel" binding="comStatusText">
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-                            <preferred-size width="50" height="-1"/>
-                          </grid>
-                        </constraints>
-                        <properties/>
-                      </component>
-                      <component id="23c72" class="javax.swing.JButton" binding="dwellExecuteButton">
-                        <constraints>
-                          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <text value="Execute"/>
+                          <text value="Not connected"/>
                         </properties>
                       </component>
                     </children>
                   </grid>
                 </children>
               </grid>
+              <grid id="16867" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b9344" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Callibration"/>
+                    </properties>
+                  </component>
+                  <grid id="94a6a" binding="calibrationInnerPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="2c970" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Home"/>
+                        </properties>
+                      </component>
+                      <component id="bf6e7" class="javax.swing.JButton" binding="homingExecuteButton">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Execute"/>
+                        </properties>
+                      </component>
+                      <component id="55eaa" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Dwell"/>
+                        </properties>
+                      </component>
+                      <grid id="caf03" binding="dwellPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="54332" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <text value="(seconds)"/>
+                            </properties>
+                          </component>
+                          <component id="26de4" class="javax.swing.JTextField" binding="dwellSecondsInput">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <preferred-size width="50" height="-1"/>
+                              </grid>
+                            </constraints>
+                            <properties/>
+                          </component>
+                          <component id="51013" class="javax.swing.JButton" binding="dwellExecuteButton">
+                            <constraints>
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <text value="Execute"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <component id="3f24d" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Serial port"/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>
