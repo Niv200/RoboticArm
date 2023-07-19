@@ -1,12 +1,21 @@
 package me.niv.robotdesktop.service;
 
 import java.awt.event.ActionListener;
-import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import me.niv.robotdesktop.serial.SerialHandler;
+import javax.swing.JScrollBar;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public interface IActionService {
 
-    ActionListener serialConnectActionListener(SerialHandler handler, JComboBox comboBox, JLabel comStatusText);
+    ActionListener serialConnectActionListener(JComboBox comboBox, JLabel comStatusText);
+
+    ActionListener homeActionListener();
+
+    ActionListener dwellActionListener(JTextField dwellField);
+
+    ActionListener sendConsoleActionListener(JTextField consoleInputField,  JTextArea consoleTextArea);
+
+    ActionListener retrieveLocation();
 }

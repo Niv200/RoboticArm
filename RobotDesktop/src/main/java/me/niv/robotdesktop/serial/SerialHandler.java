@@ -5,6 +5,8 @@ import static java.util.Objects.isNull;
 import static java.util.Optional.empty;
 
 import com.fazecast.jSerialComm.SerialPort;
+import com.fazecast.jSerialComm.SerialPortEvent;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +14,21 @@ import java.util.stream.Collectors;
 
 public class SerialHandler {
 
+    private static SerialHandler INSTANCE;
+
+    private PrintWriter writer;
     private SerialPort port;
+
+
+    private SerialHandler(){
+    }
+
+    public static SerialHandler getInstance(){
+        if(INSTANCE == null){
+            INSTANCE = new SerialHandler();
+        }
+        return INSTANCE;
+    }
 
     public List<String> getPortsNames(){
         List<SerialPort> ports = Arrays.stream(SerialPort.getCommPorts()).collect(Collectors.toList());
@@ -38,6 +54,10 @@ public class SerialHandler {
         return port.get();
     }
 
+    public void openWriter(){
+        writer = new PrintWriter(getConnectedPort().getOutputStream(),true);
+    }
+
     public SerialPort getConnectedPort(){
         if(isNull(port)){
             return null;
@@ -45,8 +65,9 @@ public class SerialHandler {
         return this.port;
     }
 
-    public boolean connectToPort(SerialPort serialPort){
-        return serialPort.openPort();
+    public void out(String command){
+        writer.println(command);
     }
+
 
 }

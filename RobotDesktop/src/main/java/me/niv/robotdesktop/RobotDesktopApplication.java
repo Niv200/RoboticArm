@@ -5,12 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-import me.niv.robotdesktop.serial.SerialHandler;
 import me.niv.robotdesktop.window.StartingWindow;
 
 public class RobotDesktopApplication {
 
-    private static StartingWindow startingWindow = StartingWindow.getStartingWindow();
+    private static StartingWindow startingWindow = StartingWindow.getInstance();
 
     public static void main(String[] args) {
         List<SerialPort> ports = Arrays.stream(SerialPort.getCommPorts()).toList();
